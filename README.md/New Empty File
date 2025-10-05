@@ -1,0 +1,28 @@
+# 🛡️ Custom Firewall Script
+
+This project is a simple Linux-based custom firewall implemented using `iptables`.  
+It allows users to manage network traffic, block ports, and log unauthorized connections.
+
+## 🔧 Features
+- Block/Allow specific IPs or ports
+- Drop incoming/outgoing packets
+- Basic logging of denied connections
+- Easy to extend for network defense labs
+
+## 🚀 Usage
+```bash
+sudo bash custom_firewall.sh
+
+
+
+
+---
+
+### 🪪 Step 3: Initialize a local Git repo
+In your terminal:
+
+```bash
+cd ~/Downloads/custom_firewall
+git init
+git add .
+git commit -m "Initial commit - Custom Firewall Project"

@@ -1,0 +1,33 @@
+from scapy.all import siff, IP, TCP, UDP
+import jso
+from datetime import datetime
+
+# Load firewall rules from rules.json
+with open("rules.json") as f:
+    rules = json.load(f)
+
+# Function to check packet against rules
+def match_rule(packet):
+    if IP not in packet:
+        return "ALLOW"
+
+    src_ip = packet[IP].src
+    dst_port = None
+    proto = None
+
+    if TCP in packet:
+        dst_port = packet[TCP].dport
+        proto = "TCP"
+    elif UDP in packet:
+        dst_port = packet[UDP].dport
+        proto = "UDP"
+    else:
+        return "ALLOW"
+
+    for rule in rules:
+        rule_ip = rule["src_ip"]
+        rule_port = rule["dst_port"]
+        rule_proto = rule["protocol"]
+
+        if (rule_ip == "ANY" or rule_ip == src_ip) and dst_port == rule_port and rule_proto == proto:
+

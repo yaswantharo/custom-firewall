@@ -1,0 +1,14 @@
+[
+  {
+    "src_ip": "192.168.30.50",
+    "dst_port": "ANY",
+    "protocol": "ANY",
+    "action": "DENY"
+  },
+  {
+    "src_ip": "ANY",
+    "dst_port": "ANY",
+    "protocol": "ANY",
+    "action": "ALLOW"
+  }
+]
